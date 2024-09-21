@@ -56,9 +56,15 @@ function reiniciar(){
         return
     }
 
-    listaAmigos = []    
-    sorteioRealizado = false
-    amigosIncluidos.textContent = ''
-    listaSorteio.innerHTML = ''
-    nomeAmigo.value = ''
+    let texto = 'Tem certeza que deseja limpar os dados da tela?'
+    if(confirm(texto) == true){
+        listaAmigos = []    
+        sorteioRealizado = false
+        amigosIncluidos.textContent = ''
+        listaSorteio.innerHTML = ''
+        nomeAmigo.value = ''
+    }
+    else{
+        return
+    }
 }
