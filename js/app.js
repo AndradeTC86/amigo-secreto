@@ -24,15 +24,14 @@ function adicionar(){
     paragrafo.textContent = amigo
 
     paragrafo.addEventListener('click', function (){
+        if(sorteioRealizado){
+            alert('Não é possível excluir o nome, o sorteio já foi realizado')
+            return
+        }
+        
         let texto = 'Tem certeza que deseja excluir o nome da lista?'
-        if(confirm(texto) == true){
-            if(sorteioRealizado){
-                alert('Não é possível excluir o nome, o sorteio já foi realizado')
-                return
-            }
-            else{
-                excluirNome(amigo, paragrafo)
-            }
+        if(confirm(texto) == true){ 
+            excluirNome(amigo, paragrafo)            
         }
         else{
             return
