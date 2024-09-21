@@ -19,7 +19,21 @@ function adicionar(){
 
     listaAmigos.push(amigo)
     nomeAmigo.value = ''    
-    amigosIncluidos.textContent = listaAmigos.join(', ')
+    
+    let paragrafo = document.createElement('p')
+    paragrafo.textContent = amigo
+
+    paragrafo.addEventListener('click', function (){
+        if(sorteioRealizado){
+            alert('Não é possível excluir o nome, o sorteio já foi realizado')
+            return
+        }
+        else{
+            excluirNome(amigo, paragrafo)
+        }
+    })
+
+    amigosIncluidos.appendChild(paragrafo)
 }
 
 function sortear(){
@@ -67,4 +81,9 @@ function reiniciar(){
     else{
         return
     }
+}
+
+function excluirNome(nome, elementoParagrafo){
+    listaAmigos = listaAmigos.filter(amigo => amigo !== nome)
+    amigosIncluidos.removeChild(elementoParagrafo)
 }
